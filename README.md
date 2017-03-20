@@ -7,5 +7,5 @@ This is a project for the Udacity Front-End Nanodegree. In this project, we were
 2. open index.html
 
 ## Acknowledgments
-*Udacity
-*Jasmine Documentation
+* Udacity
+* Jasmine Documentation
