@@ -25,9 +25,10 @@ $(function() {
          * and that the URL is not empty.
          */
 
-        it('urls are defined', function() {
+        it('urls are defined and not empty', function() {
             for (var i = 0; i < allFeeds.length; i++) {
                 expect(allFeeds[i].url).toBeDefined();
+                expect(allFeeds[i].url.length).not.toBe(0);
             }
         });
 
@@ -38,7 +39,7 @@ $(function() {
         it('names are defined and not empty', function() {
             for (var i = 0; i < allFeeds.length; i++) {
                 expect(allFeeds[i].name).toBeDefined();
-                expect(allFeeds[i].name).not.toBe(0);
+                expect(allFeeds[i].name.length).not.toBe(0);
             }
         });
     });
@@ -68,9 +69,8 @@ $(function() {
 
         /* ensures when the loadFeed function is called and completes its work,
          * there is at least a single .entry element within the .feed container */
-        it('contains at least one entry in feed', function(done) {
-            expect($('.entry h2').length).not.toBe([0]);
-            done();
+        it('contains at least one entry in feed', function() {
+            expect($('.entry h2')[0]).toBeDefined();
         });
     });
 
@@ -79,18 +79,17 @@ $(function() {
         var newFeed;
         beforeEach(function(done) {
             loadFeed(0, function() {
-                $currentFeed = $('.header-title').html();
+                currentFeed = $('.feed').html();
                 loadFeed(1, function() {
-                    $newFeed = $('.header-title').html();
+                    newFeed = $('.feed').html();
                     done();
                 });
             });
         });
 
         /*ensures when a new feed is loaded by the loadFeed function that the content actually changes */
-        it('content changes', function(done) {
-            expect($currentFeed).not.toBe($newFeed);
-            done();
+        it('content changes', function() {
+            expect(currentFeed).not.toBe(newFeed);
 
         });
     });
