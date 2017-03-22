@@ -70,7 +70,7 @@ $(function() {
         /* ensures when the loadFeed function is called and completes its work,
          * there is at least a single .entry element within the .feed container */
         it('contains at least one entry in feed', function() {
-            expect($('.entry h2')[0]).toBeDefined();
+            expect($('.feed .entry').length).not.toBe(0);
         });
     });
 
